@@ -1,15 +1,27 @@
 {
-  "name": "auto-cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "wy-cli",
+  "version": "0.0.1",
+  "description": "wy-cli 脚手架",
   "license": "ISC",
-  "author": "",
+  "author": "wangyue",
+  "bin": {
+    "wy-cli": "./bin/index.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md"
+  ],
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js"
   },
+  "keywords": [
+    "vite",
+    "vue3"
+  ],
   "devDependencies": {
     "@inquirer/prompts": "^8.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
