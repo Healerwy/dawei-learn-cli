@@ -1,6 +1,8 @@
 import simpleGit from 'simple-git';
 import createLogger from 'progress-estimator'
 import chalk from 'chalk';
+import log from './log';
+import figlet from 'figlet';
 
 const logger = createLogger({
     spinner:{
@@ -9,6 +11,10 @@ const logger = createLogger({
     }
 })
 
+const goodPrinter = () => {
+    const data = figlet.textSync('wy-cli');
+    console.log(chalk.rgb(40,156,193)(data));
+}
 const gitOptions = {
     baseDir:process.cwd(),//当前工作目录
     binary:'git',//指定git二进制文件路径
@@ -22,9 +28,14 @@ export const clone = async(url,projectName,options) => {
             estimate:7000,//预计下载时间
         });
         console.log(chalk.blackBright('===================='));
-        console.log(chalk.green('代码下载完成'));
+        goodPrinter()
+        log.success(`项目创建成功${chalk.blueBright(projectName)}`);
+        log.success('执行以下命令启动项目');
+        log.info(`cd ${projectName}`);
+        log.info(`npm install`);
+        log.info(`npm run dev`);
     }catch(error){
-        console.error('clone error',error);
+        log.error('clone error',error);
         throw error;
     }
 }

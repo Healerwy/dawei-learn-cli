@@ -37,7 +37,10 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
+    "figlet": "^1.9.4",
     "lodash": "^4.17.21",
+    "log-symbols": "^7.0.1",
+    "ora": "^9.0.0",
     "rollup-plugin-node-externals": "^8.1.2"
   }
 }
