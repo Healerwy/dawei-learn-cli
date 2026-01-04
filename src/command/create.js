@@ -2,6 +2,10 @@ import { input,select } from "@inquirer/prompts";
 import { clone } from '../utils/clone';
 import fs from 'fs-extra';
 import path from 'path';
+import { name,version } from '../../package.json';
+import axios from 'axios';
+import {gt} from 'lodash'
+
 
 export const templates = new Map([
     ['Vite-Vue3-Typescript-template',{
@@ -27,10 +31,26 @@ export function isOverwrite(fileName) {
             {name:'取消',value:false},
         ]
     })
-
 }
 
-export async function create(projectName) {
+export const getNpmLatestVersion = async(name) => {
+    const {data} = await axios.get(`https://registry.npmjs.org/${name}`);
+    return data['dist-tags'].latest;
+}
+
+export const checkVersion = async(name,version) => {
+    const latestVersion = await getNpmLatestVersion(name);
+    console.log(latestVersion,'latestVersion');
+    console.log(version,'version');
+    const need = gt(latestVersion,version)
+    if(need){
+        console.warn(`${name} 有新版本 ${chalk.blackBright(latestVersion)}，请升级`);
+        console.warn(`升级命令：npm install -g ${name}@${latestVersion}`);
+    }
+    return need;
+}
+
+export async function create(projectName) { 
     const templateList = Array.from(templates).map(item =>{
         const [name,info] = item;
         return {
@@ -53,6 +73,8 @@ export async function create(projectName) {
             await fs.remove(filePath);
         }
     }
+
+    await checkVersion(name,version);
 
     const templateName = await select({
         message:'请选择模板',
