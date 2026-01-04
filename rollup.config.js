@@ -16,12 +16,12 @@ export default defineConfig({
         }
     ],
     plugins: [
+        json(),
         nodeResolve(),
         externals({
             devDeps:false //可以识别package.json中的devDependencies 依赖 当作外部依赖
         }),
         commonjs(),
-        json(),
         terser()
     ]
 });

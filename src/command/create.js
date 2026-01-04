@@ -4,7 +4,9 @@ import fs from 'fs-extra';
 import path from 'path';
 import { name,version } from '../../package.json';
 import axios from 'axios';
-import {gt} from 'lodash'
+import _ from 'lodash';
+const { gt } = _;
+import chalk from 'chalk';
 
 
 export const templates = new Map([

@@ -1,5 +1,6 @@
 # wy-cli
-![Static Badge](https://img.shields.io/badge/wy-cli_0.0.1)
+![Static Badge](https://img.shields.io/badge/wy-cli-version)
+
 
 ## 简介
 
@@ -17,7 +18,8 @@ npm install wy-cli -g
 
 ```bash
 # 使用模板创建新项目
+wy-cli create
 
-dawei create
-
+# 更新脚手架版本
+wy-cli update
 ```
