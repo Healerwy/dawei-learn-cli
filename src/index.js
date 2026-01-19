@@ -3,7 +3,7 @@ import {version} from '../package.json';
 import { create } from './command/create';
 import { update } from './command/update';
 
-const program = new Command('dawei');
+const program = new Command('wy-cli');
 program.version(version,'-v, --version')
 
 program.command('update').description('检查并更新wy-cli').action(async () => {

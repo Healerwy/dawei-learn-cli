@@ -10,17 +10,17 @@ import chalk from 'chalk';
 
 
 export const templates = new Map([
-    ['Vite-Vue3-Typescript-template',{
-        name:'Vite-Vue3-Typescript-template',
-        downloadUrl:'https://gitee.com/sohucw/admin-pro.git',
-        description:'Vue3技术栈开发模板',
-        branch:'dev11',
+    ['Vite-Vue3-work-template',{
+        name:'Vite-Vue3-work-template',
+        downloadUrl:'http://10.0.10.9/cn-smart-water/cona-waterplant-platform.git',
+        description:'综合工单开发模板',
+        branch:'lwp-master-work',
     }],
-    ['Vite-template',{
-        name:'Vite-Vue3-Typescript-template',
-        downloadUrl:'https://gitee.com/sohucw/admin-pro.git',
+    ['Vite-Vue3-template',{
+        name:'Vite-Vue3-template',
+        downloadUrl:'http://10.0.10.9/cn-smart-water/cona-waterplant-platform.git',
         description:'Vue3技术栈开发模板',
-        branch:'dev10',
+        branch:'lwp-master',
     }],
 ])
 
