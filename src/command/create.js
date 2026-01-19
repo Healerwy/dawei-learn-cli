@@ -84,9 +84,9 @@ export async function create(projectName) {
     })
 
     const info = templates.get(templateName);
-    console.log(info,'info');  
+    // console.log(info,'info');  
     if(info){
         clone(info.downloadUrl,projectName,['--branch',info.branch,])}
 
-    console.log(`create ${projectName}`);
+    // console.log(`create ${projectName}`);
 }
